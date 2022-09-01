@@ -1,0 +1,16 @@
+#chart {
+	display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+	gap: 0.5em 1em;
+}
+
+.chart-letter {
+	transform: translateY(5.5%);
+}
+
+.bar {
+	background: black;
+	height: 1em;
+	border-radius: 0px 6px 6px 0px;
+}

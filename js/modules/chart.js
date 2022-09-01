@@ -21,10 +21,8 @@ const letterAt = pos => String.fromCharCode(65 + pos)
 const ratio = over => val => val / over
 
 const cBar = (name, letter, weight) => `
-<div class="bar-container" id="${name}" data-name="${name}" data-weight="${weight}" >
   <span id="${letter}" class="chart-letter">${letter}</span>
   <div class="bar" style="width: ${weight}%;"></div>
-</div>
 `
 
 const generateChart = (container, data) => {

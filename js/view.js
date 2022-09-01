@@ -1,8 +1,4 @@
-const average = arr => {
-    // TODO take an array of numbers and return their average
-}
-console.assert(average([5, 5, 5]) === 5, "average implementation is wrong")
-console.assert(average([3, 7]) === 5, "average implementation is wrong")
+const average = arr => arr.reduce((a, b) => a + b) / arr.length
 
 const extractTopics = obj => {
     // TODO extract all topic names and all weights and return them as an array

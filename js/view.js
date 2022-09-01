@@ -5,6 +5,22 @@ const extractTopics = obj => {
     // return [
     //    ["topic name", [15, 3, 13]]
     // ]
+    const itemList = []
+    for (let i in obj.topic) {
+        const topic = obj.topic[i]
+
+        const ws = []
+
+        for (let j in topic.weights){
+            const weight = topic.weights[j]
+            ws.push(weight.weight);
+        }
+        
+        const item = [topic.name, ws]
+        itemList.push(item);
+    }
+
+    return itemList    
 }
 const testExtractTopics = topicList => {
     topicList.map(([name, weights]) => {
@@ -31,6 +47,7 @@ const createWeightedList = topicList => {
 
 const handleData = obj => {
     const topicList = extractTopics(obj)
+    console.log(topicList)
     testExtractTopics(topicList)
     const weightList = createWeightedList(topicList)
     console.log(weightList)

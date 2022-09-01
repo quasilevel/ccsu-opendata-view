@@ -20,16 +20,28 @@ const letterAt = pos => String.fromCharCode(65 + pos)
 
 const ratio = over => val => val / over
 
+const cBar = (name, letter, weight) => `
+<div class="bar-container" id="${name}" data-name="${name}" data-weight="${weight}" >
+  <span id="${letter}" class="chart-letter">${letter}</span>
+  <div class="bar" style="width: ${weight}%;"></div>
+</div>
+`
+
 const generateChart = (container, data) => {
   const sortedData = sort(data)
   const [min, median, max] = analyze(getWeights(sortedData))
 
   const ratioOverMax = ratio(max)
 
-  const processedData = (
+  const bars = (
     sortedData
+    .reverse()
     .map((item, idx) => [item[NAME], letterAt(idx), Math.min(Math.floor(ratioOverMax(item[WEIGHT]) * 100), 100)])
+    .map(item => cBar(...item))
+    .join("")
   )
+
+  container.innerHTML = bars;
 }
 
 export default generateChart

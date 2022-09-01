@@ -35,8 +35,8 @@ const createWeightedList = topicList => {
 
 const handleData = obj => {
     const topicList = extractTopics(obj)
-    testExtractTopics(topics)
-    const weightList = createWeightList(topicList)
+    testExtractTopics(topicList)
+    const weightList = createWeightedList(topicList)
     console.log(weightList)
 }
 

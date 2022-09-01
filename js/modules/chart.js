@@ -12,13 +12,24 @@ const median = sortedWeights => {
   return (sortedWeights[mid - 1] + sortedWeights[mid]) / 2
 }
 
-const getWeights = data => data.map(item[WEIGHT])
+const getWeights = data => data.map(item => item[WEIGHT])
 
 const analyze = sortedWeights => [sortedWeights[0], median(sortedWeights), sortedWeights[sortedWeights.length - 1]]
+
+const letterAt = pos => String.fromCharCode(65 + pos)
+
+const ratio = over => val => val / over
 
 const generateChart = (container, data) => {
   const sortedData = sort(data)
   const [min, median, max] = analyze(getWeights(sortedData))
+
+  const ratioOverMax = ratio(max)
+
+  const processedData = (
+    sortedData
+    .map((item, idx) => [item[NAME], letterAt(idx), Math.min(Math.floor(ratioOverMax(item[WEIGHT]) * 100), 100)])
+  )
 }
 
 export default generateChart

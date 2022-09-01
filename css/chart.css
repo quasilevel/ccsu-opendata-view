@@ -14,3 +14,19 @@
 	height: 1em;
 	border-radius: 0px 6px 6px 0px;
 }
+
+#marker {
+  position: relative;
+}
+
+#marker span {
+  position: absolute;
+}
+
+#min, #median {
+  transform: translateX(-50%);
+}
+
+#max {
+  transform: translateX(-100%);
+}

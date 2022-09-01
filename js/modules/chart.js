@@ -25,6 +25,16 @@ const cBar = (name, letter, weight) => `
   <div class="bar" style="width: ${weight}%;"></div>
 `
 
+const cMarkers = (min, median, max) => `
+  <span id="chart-stub"></span>
+  <div id="marker">
+    <span id="zero" style="left: 0%;">0</span>
+    <span id="min" style="left: ${min.position}%;">${min.value}</span>
+    <span id="median" style="left: ${median.position}%;">${median.value}</span>
+    <span id="max" style="left: ${max.position}%;">${max.value}</span>
+  </div>
+`
+
 const generateChart = (container, data) => {
   const sortedData = sort(data)
   const [min, median, max] = analyze(getWeights(sortedData))
@@ -39,7 +49,14 @@ const generateChart = (container, data) => {
     .join("")
   )
 
-  container.innerHTML = bars;
+  const [pmin, pmedian, pmax] = ([min, median, max]).map(item => ({
+    value: Math.round(item),
+    position: Math.min(100, Math.floor(ratioOverMax(item) * 100)),
+  }))
+
+  const markers = cMarkers(pmin, pmedian, pmax)
+
+  container.innerHTML = bars + markers;
 }
 
 export default generateChart

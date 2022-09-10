@@ -10,14 +10,16 @@ const extractTopics = obj => {
 
         for (let j in topic.weights){
             const weight = topic.weights[j]
+            
             ws.push(weight.weight);
+            
         }
         
         const item = [topic.name, ws]
         itemList.push(item);
     }
 
-    return itemList    
+    return itemList  
  }
 const testExtractTopics = topicList => {
     topicList.map(([name, weights]) => {
@@ -29,16 +31,19 @@ const testExtractTopics = topicList => {
     })
 }
 
-const createWeightedList = topicList => {
-    
-    for  (let i in average){
-        const avg = average[i]
-        const result =[ topic.name , average]
-        topicList.push(result);
-    }
-    return topicList
+// TODO take a topiclist and average out the weights 
+// extractTopics' output
 
-}
+    const createWeightedList = topicList => {
+
+        // result = [
+        //    ["topic name", 10],
+        //    ["topic name 2", 5],  
+        //    ]
+
+    // return result  
+    return topicList
+    } 
 
 const handleData = obj => {
     const topicList = extractTopics(obj)

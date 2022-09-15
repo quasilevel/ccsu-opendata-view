@@ -1,0 +1,93 @@
+:root {
+  --logo-size: 6.125em;
+  --title-size: calc(0.9em * (24.06 / 16));
+  --text-size: calc(var(--title-size) * (18.82 / 24.06));
+  --action-text-size: calc(var(--title-size) * (14 / 24.06));
+  --button-text-size: calc(var(--title-size) * (20.08 / 24.06));
+}
+
+body {
+  font-family: "Fira Code";
+  padding: 0px;
+  margin: 0px;
+}
+
+#intro, #button-group {
+  padding: 0 7.5vw;
+}
+
+#button-group > img {
+  display: none;
+}
+
+#intro {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  padding-top: 2em;
+}
+
+#intro > img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  justify-self: center;
+  align-self: center;
+}
+
+#title {
+  --title-hgap: calc(var(--title-size) * (6.02 / 24.06));
+  --title-vgap: calc(var(--title-size) * (9.02 / 24.06));
+  font-size: var(--title-size);
+  display: flex;
+  gap: var(--title-hgap);
+  align-items: baseline;
+  align-self: center;
+}
+
+#title > span {
+  padding: var(--title-hgap) var(--title-vgap); /* naming is weird, but this is correct */
+  color: white;
+  background: black;
+  border-radius: var(--title-hgap);
+}
+
+#intro #intro-text {
+  font-size: var(--text-size);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#intro-text p {
+  margin: 0px;
+}
+
+#intro-text > a {
+  color: black;
+}
+
+#button-group {
+  background: black;
+  color: white;
+}
+
+#action-hint {
+  font-size: var(--action-text-size);
+}
+
+button {
+  appearance: none;
+  color: black;
+  background: white;
+  outline: none;
+  border: none;
+  --vpad: calc(var(--button-text-size) * (12.91 / 20.08));
+  font-size: var(--button-text-size);
+  padding: var(--vpad) 0px;
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}

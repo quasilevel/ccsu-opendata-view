@@ -75,7 +75,7 @@ body {
   font-size: var(--action-text-size);
 }
 
-button {
+#buttons > a {
   appearance: none;
   color: black;
   background: white;
@@ -84,6 +84,40 @@ button {
   --vpad: calc(var(--button-text-size) * (12.91 / 20.08));
   font-size: var(--button-text-size);
   padding: var(--vpad) 0px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-out;
+}
+
+#buttons > a::after {
+  content: attr(data-semester);
+  opacity: 1;
+  transition: all 0.2s ease-out;
+}
+
+#buttons > a::before {
+  content: attr(data-code);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-150%);
+  opacity: 0;
+  transition: all 0.27s ease-in;
+}
+
+#buttons > a.show::after {
+  opacity: 0;
+}
+
+#buttons > a.show::before {
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+#buttons > a.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 
 #buttons {

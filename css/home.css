@@ -72,6 +72,7 @@ body {
   color: white;
   padding-top: 1em;
   padding-bottom: 3em;
+  min-height: 50vh;
 }
 
 #action-hint {
@@ -93,6 +94,8 @@ body {
   text-align: center;
   text-decoration: none;
   transition: all 0.2s ease-out;
+  min-width: 200px;
+  flex: 1;
 }
 
 #buttons > a::after {
@@ -125,8 +128,8 @@ body {
 }
 
 #buttons {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1em;
 }
 

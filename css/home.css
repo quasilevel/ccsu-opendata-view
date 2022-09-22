@@ -163,6 +163,10 @@ body {
     margin-bottom: 64px;
   }
 
+  #intro > #title, #intro > #intro-text {
+    --title-size: calc(1.05em * (24.06 / 16));
+  }
+
   #intro {
     order: 3;
     display: block;

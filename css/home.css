@@ -224,9 +224,30 @@ body {
 
   #buttons > a {
     min-width: 180px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    transform: translateX(calc(var(--row) * 0.65em));
+  }
+
+  #buttons > a:hover {
+    border-radius: 6px;
   }
 
   #button-group > #action-hint {
     margin-bottom: 2.5em;
+  }
+}
+
+@media (min-width: 976px) {
+  #buttons > a:nth-child(3), #buttons > a:nth-child(4) {
+    --row: 1;
+  }
+
+  #buttons > a:nth-child(5), #buttons > a:nth-child(6) {
+    --row: 2;
+  }
+
+  #buttons > a:nth-child(7), #buttons > a:nth-child(8) {
+    --row: 3;
   }
 }

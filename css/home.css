@@ -16,7 +16,7 @@ body {
   padding: 0 7.5vw;
 }
 
-#button-group > img {
+#button-group > .logo {
   display: none;
 }
 
@@ -138,4 +138,91 @@ body {
   margin-top: 1em;
   background: black;
   clip-path: polygon(0% 0%, 100% 100%, 0% 100%); /* this draws a triangle */
+}
+
+#trig {
+  display: none;
+  float: left;
+  height: 100vh;
+  width: 4em;
+  shape-outside: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+@media (min-width: 800px) {
+  main {
+    display: flex;
+    height: 100vh;
+  }
+
+  #intro, #button-group {
+    flex: 1;
+    padding: 3em;
+  }
+
+  #intro > #title, #button-group > .logo {
+    margin-bottom: 64px;
+  }
+
+  #intro {
+    order: 3;
+    display: block;
+    padding: 3em 6em 0em 0em;
+    overflow: hidden;
+  }
+
+  #intro #intro-text {
+    display: block;
+    margin-left: 0.7em;
+  }
+
+  #intro-text > p {
+    margin-bottom: 1em;
+  }
+
+  #trig {
+    display: block;
+  }
+
+  #divider {
+    order: 2;
+    height: 100vh;
+    width: 4em;
+    margin: 0px;
+  }
+
+  #button-group {
+    overflow: scroll;
+  }
+
+  #intro > img {
+    display: none;
+  }
+
+  #button-group > .logo img {
+    --size: 100px;
+    width: var(--size);
+    height: var(--size);
+  }
+
+  #button-group > .logo {
+    display: grid;
+    justify-items: center;
+  }
+
+  #intro > #title {
+    height: 100px;
+    align-items: center;
+  }
+
+  #buttons {
+    gap: 1.5em;
+  }
+
+  #buttons > a {
+    min-width: 180px;
+  }
+
+  #button-group > #action-hint {
+    margin-bottom: 2.5em;
+  }
 }

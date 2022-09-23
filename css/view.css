@@ -1,0 +1,37 @@
+:root {
+  --logo-size: 70px;
+  --title-size: calc(0.9em * (24.06 / 16));
+}
+
+body {
+  font-family: "Fira Code", monospace;
+  padding: 2em;
+}
+
+header {
+  display: grid;
+  grid-template-columns: var(--logo-size) 1fr var(--logo-size);
+  align-items: center;
+}
+
+#logo > img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+}
+
+#title {
+  --title-hgap: calc(var(--title-size) * (6.02 / 24.06));
+  --title-vgap: calc(var(--title-size) * (9.02 / 24.06));
+  font-size: var(--title-size);
+  display: flex;
+  gap: var(--title-hgap);
+  align-items: baseline;
+  justify-self: center;
+}
+
+#title > span {
+  padding: var(--title-hgap) var(--title-vgap); /* naming is weird, but this is correct */
+  color: white;
+  background: black;
+  border-radius: var(--title-hgap);
+}

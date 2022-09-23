@@ -35,3 +35,7 @@ header {
   background: black;
   border-radius: var(--title-hgap);
 }
+
+main {
+  padding: 0px 15vw;
+}

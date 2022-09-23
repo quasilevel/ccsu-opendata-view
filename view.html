@@ -1,18 +1,65 @@
-<html lang=en>
-    <head>
-        <meta charset="UTF-8" />
-        <!-- <meta name="viewport" content="width=\, initial-scale=1.0" /> -->
-        <meta http-equiv="X-UA-Campatible" content="ie=edge" />
-    </head>
-    <h1> Here the first try</h1>
-    
-    
-    <body>
-        <p> 
-            <!-- Subject: <span id = "naame"></span><br> -->
-            <!-- Topic : <span id = "yeear"></span>  -->
-            Topic : <div id = "Top"></div>  
-        </p>
-        <script type="module" src="./js/view.js"></script>
-    </body>
-</html>    
+<html>
+  <head>
+    <title>View | CCSU Opendata</title>
+    <meta name="viewport" content="width=500, initial-scale=1" />
+    <link rel="stylesheet" href="./css/view.css">
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <img src="https://pi-club.ml/logos/black_on_white.svg" alt="PI Club Logo">
+      </div>
+      <div id="title">
+        CCSU <span>Opendata</span>
+      </div>
+    </header>
+    <main>
+      <section id="intro">
+        <h1>Topic Name</h1>
+        <p>The topics are arranged in a decreasing order of importance. Topics higher on the list are more important.</p>
+        <div id="progress">
+
+        </div>
+      </section>
+      <section id="list">
+        <ul>
+          <li>
+            <input type="checkbox" id="q1">
+            <label for="q1">Lorem ipsum dolor sit amet</label>
+          </li>
+          <li>
+            <input type="checkbox" id="q2">
+            <label for="q2">Lorem ipsum dolor sit amet</label>
+          </li>
+          <li>
+            <input type="checkbox" id="q1">
+            <label for="q1">Lorem ipsum dolor sit amet</label>
+          </li>
+          <li>
+            <input type="checkbox" id="q1">
+            <label for="q1">Lorem ipsum dolor sit amet</label>
+          </li>
+          <li>
+            <input type="checkbox" id="q1">
+            <label for="q1">Lorem ipsum dolor sit amet</label>
+          </li>
+        </ul>
+      </section>
+      <hr>
+      <section id="chart">
+        <h1>Frequency Analysis</h1>
+        <div id="chart-container"></div>
+      </section>
+      <hr>
+      <section id="related">
+        <h1>Related Subject Code</h1>
+        <div id="button-group">
+          <a href="#">101</a>
+          <a href="#">102</a>
+          <a href="#">104</a>
+          <a href="#">105</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

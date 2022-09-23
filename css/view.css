@@ -12,6 +12,7 @@ header {
   display: grid;
   grid-template-columns: var(--logo-size) 1fr var(--logo-size);
   align-items: center;
+  margin-bottom: 4em;
 }
 
 #logo > img {
@@ -38,4 +39,14 @@ header {
 
 main {
   padding: 0px 15vw;
+}
+
+section > h1 {
+  margin: 0px 0px 1rem 0px;
+}
+
+hr {
+  border: none;
+  border-top: 2px dashed #8f8f9d;
+  margin: 2rem 0px;
 }

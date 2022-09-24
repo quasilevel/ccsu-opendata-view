@@ -175,6 +175,17 @@ ul input:checked {
   border-radius: 4px;
 }
 
+footer {
+	margin: 7rem 0px 0px;
+	color: var(--grey);
+	display: flex;
+	place-content: center;
+}
+
+footer p {
+	border-bottom: 1px dashed currentColor;
+}
+
 @media (min-width: 750px) {
   section > h1 {
     margin-bottom: 0.75rem;

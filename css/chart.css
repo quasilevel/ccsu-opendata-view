@@ -1,4 +1,4 @@
-#chart {
+.chart {
 	display: grid;
   grid-template-columns: min-content 1fr;
   align-items: center;
@@ -15,18 +15,19 @@
 	border-radius: 0px 6px 6px 0px;
 }
 
-#marker {
+.chart #marker {
   position: relative;
+  height: 1.1em;
 }
 
-#marker span {
+.chart #marker span {
   position: absolute;
 }
 
-#min, #median {
+.chart #min, .chart #median {
   transform: translateX(-50%);
 }
 
-#max {
+.chart #max {
   transform: translateX(-100%);
 }

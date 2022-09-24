@@ -261,6 +261,10 @@ footer p {
     border-width: 3px;
   }
 
+  ul input[type="checkbox"]::before {
+    transform: translate(-1px, -1px);
+  }
+
   header {
     display: grid;
     grid-template-columns: none;

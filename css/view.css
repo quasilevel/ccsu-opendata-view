@@ -262,7 +262,7 @@ footer p {
   }
 
   ul input[type="checkbox"]::before {
-    transform: translate(-1px, -1px);
+    transform: translate(0px, -1px);
   }
 
   header {

@@ -45,6 +45,9 @@ header {
 
 main {
   padding: 0px 15vw;
+  display: grid;
+  max-width: 730px;
+  margin: auto;
 }
 
 section > h1 {
@@ -54,7 +57,7 @@ section > h1 {
 hr {
   border: none;
   border-top: 2px dashed var(--grey);
-  margin: 2rem 0px;
+  margin: 3rem 0px;
 }
 
 ul {
@@ -174,21 +177,25 @@ ul input:checked {
 
 @media (min-width: 750px) {
   section > h1 {
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.75rem;
   }
 
   #intro p {
     margin-top: 0px;
   }
 
+  #intro {
+    margin-bottom: 1em;
+  }
+
   #progress {
-    --size: 1.45rem;
-    gap: 1rem;
+    --size: 1.55rem;
+    gap: 1.3rem;
     height: initial;
     position: absolute;
     top: 0;
     flex-direction: column;
-    transform: translateX(-200%) translateY(3px);
+    transform: translateX(-200%) translateY(4px);
     align-items: center;
   }
 
@@ -200,5 +207,6 @@ ul input:checked {
     line-height: 16px;
     text-align: center;
     padding: 0.5em 0.3em;
+    transform: translateY(-3px);
   }
 }

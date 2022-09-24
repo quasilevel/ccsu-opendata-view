@@ -17,6 +17,10 @@ header {
   margin-bottom: 4em;
 }
 
+#intro {
+  position: relative;
+}
+
 #logo > img {
   width: var(--logo-size);
   height: var(--logo-size);
@@ -56,6 +60,7 @@ hr {
 ul {
   list-style: none;
   padding: 0px;
+  margin: 0px;
 }
 
 li {
@@ -136,4 +141,64 @@ ul input:checked {
 
 #related a:hover {
   border-radius: 4px;
+}
+
+#progress {
+  --size: 1.25em;
+  display: flex;
+  gap: 0.6em;
+  height: var(--size);
+}
+
+#progress svg circle {
+  stroke: var(--grey);
+  stroke-width: 2px;
+  fill: transparent;
+}
+
+#progress svg {
+  width: var(--size);
+  height: var(--size);
+}
+
+#progress #progress-value {
+  height: 100%;
+  background: black;
+  display: grid;
+  place-items: center;
+  padding: 0px 0.5em;
+  color: white;
+  font-size: 0.8em;
+  border-radius: 4px;
+}
+
+@media (min-width: 750px) {
+  section > h1 {
+    margin-bottom: 0.45rem;
+  }
+
+  #intro p {
+    margin-top: 0px;
+  }
+
+  #progress {
+    --size: 1.45rem;
+    gap: 1rem;
+    height: initial;
+    position: absolute;
+    top: 0;
+    flex-direction: column;
+    transform: translateX(-200%) translateY(3px);
+    align-items: center;
+  }
+
+  #progress #progress-value {
+    max-width: calc(var(--size) - 2px);
+    word-break: break-all;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    line-height: 16px;
+    text-align: center;
+    padding: 0.5em 0.3em;
+  }
 }

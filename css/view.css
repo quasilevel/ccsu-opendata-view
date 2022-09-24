@@ -73,6 +73,7 @@ li {
 }
 
 ul input {
+  flex-shrink: 0;
   margin-left: 2px;
   margin-right: 0px;
   appearance: none;
@@ -249,6 +250,15 @@ footer p {
   }
   #button-group {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  ul li {
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+  }
+
+  ul input {
+    border-width: 3px;
   }
 
   header {

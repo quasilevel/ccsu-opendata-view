@@ -97,3 +97,43 @@ ul input:checked {
   background: black;
   border-color: black;
 }
+
+#button-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+#related a {
+  background: black;
+  color: white;
+  padding: 0.7em;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.2s ease-in;
+}
+
+#related a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  --size: 6px;
+  width: var(--size);
+  height: var(--size);
+  transform: translate(-50%, 0.7em);
+  background: black;
+  border-radius: 100%;
+  opacity: 0;
+  transition: all 0.15s ease-in;
+}
+
+#related a:hover::before {
+  opacity: 1;
+}
+
+#related a:hover {
+  border-radius: 4px;
+}

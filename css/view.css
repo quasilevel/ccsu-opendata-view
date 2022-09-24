@@ -243,7 +243,7 @@ footer p {
   }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 560px) {
   :root {
     --logo-size: 90px;
   }

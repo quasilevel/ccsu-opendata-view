@@ -20,7 +20,7 @@
     </header>
     <main>
       <section id="intro">
-        <h1>Topic Name</h1>
+        <h1></h1>
         <p>The topics are arranged in a decreasing order of importance. Topics higher on the list are more important.</p>
         <div id="progress">
           <svg version="1.1" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -31,11 +31,6 @@
       </section>
       <section id="list">
         <ul>
-          <li><label for="q1">Lorem ipsum dolor sit.</label><input type="checkbox" id="q1"></li>
-          <li><label for="q2">Reiciendis a ut totam.</label><input type="checkbox" id="q2"></li>
-          <li><label for="q3">Porro debitis temporibus alias.</label><input type="checkbox" id="q3"></li>
-          <li><label for="q4">Quia voluptate in repellat!</label><input type="checkbox" id="q4"></li>
-          <li><label for="q5">Ipsam, cum autem? Expedita.</label><input type="checkbox" id="q5"></li>
         </ul>
       </section>
       <hr>
@@ -47,21 +42,12 @@
       <section id="related">
         <h1>Related Subject Code</h1>
         <div id="button-group">
-          <a href="#">101</a>
-          <a href="#">102</a>
-          <a href="#">104</a>
-          <a href="#">105</a>
         </div>
       </section>
     </main>
     <footer>
       <p>A PI Club Project</p>
     </footer>
-    <script type="module">
-      import generateChart from "/js/modules/chart.js"
-      generateChart(document.querySelector("#chart-container"), [
-        ["A", 15], ["B", 2.4], ["C", 5.6], ["D", 7.8], ["E", 9.4],
-      ])
-    </script>
+    <script type="module" src="/js/view.js"></script>
   </body>
 </html>

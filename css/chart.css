@@ -1,18 +1,23 @@
 .chart {
 	display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: min-content 1fr min-content;
   align-items: center;
 	gap: 0.5em 1em;
 }
 
 .chart-letter {
 	transform: translateY(5.5%);
+  text-align: right;
 }
 
 .bar {
 	background: black;
 	height: 1em;
 	border-radius: 0px 6px 6px 0px;
+}
+
+.bar-value {
+  text-align: right;
 }
 
 .chart #marker {

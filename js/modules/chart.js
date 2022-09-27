@@ -20,9 +20,10 @@ const letterAt = pos => String.fromCharCode(65 + pos)
 
 const ratio = over => val => val / over
 
-const cBar = (name, letter, weight) => `
+const cBar = (name, letter, weightPercent, weight) => `
   <span id="${letter}" class="chart-letter">${letter}</span>
-  <div class="bar" style="width: ${weight}%;"></div>
+  <div class="bar" style="width: ${weightPercent}%;"></div>
+  <span class="bar-value">${weight.toFixed(1)}</span>
 `
 
 const cMarkers = (min, median, max) => `
@@ -44,7 +45,7 @@ const generateChart = (container, data) => {
   const bars = (
     sortedData
     .reverse()
-    .map((item, idx) => [item[NAME], letterAt(idx), Math.min(Math.floor(ratioOverMax(item[WEIGHT]) * 100), 100)])
+    .map((item, idx) => [item[NAME], idx, Math.min(Math.floor(ratioOverMax(item[WEIGHT]) * 100), 100), item[WEIGHT]])
     .map(item => cBar(...item))
     .join("")
   )

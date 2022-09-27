@@ -258,6 +258,10 @@ footer p {
   :root {
     --logo-size: 90px;
   }
+
+  body {
+    padding: 2em 1em;
+  }
   #button-group {
     grid-template-columns: repeat(2, 1fr);
   }

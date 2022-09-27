@@ -53,7 +53,14 @@ const genRef = code => {
 const cLink = code => `
 <a href="${genRef(code)}">${code}</a>
 `
-
+const getProgress = inputs => () => average(inputs.map(el => el.checked ? 1 : 0)) * 100
+const scaleInRage = ((min, max) => percentile => ((max - min) * (percentile / 100)) + min)(30, 68)
+const setProgress = gp => () => {
+  const progress = Math.round(gp()).toString().padStart(3, "0")
+  document.querySelector("#progress-value").innerText = `${progress}%`
+  document.querySelector("#progress-circle").style.strokeDashoffset = `${scaleInRage(100 - progress)}px`
+}
+  
 const handleData = async subject => {
   const topicList = extractTopics(subject)
   const weightList = createWeightedList(topicList)
@@ -63,6 +70,10 @@ const handleData = async subject => {
 
   const lis = weightList.map(cListItem).join("")
   document.querySelector("ul").innerHTML = lis
+
+  const inputs = document.querySelectorAll("ul input")
+  const gp = getProgress(Array.from(inputs))
+  inputs.forEach(el => el.addEventListener("change", setProgress(gp)))
 
   const { default: generateChart } = await import("/js/modules/chart.js")
   generateChart(document.querySelector("#chart-container"), weightList)

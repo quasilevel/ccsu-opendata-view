@@ -154,15 +154,25 @@ ul input:checked {
   height: var(--size);
 }
 
-#progress svg circle {
+#progress svg circle#backdrop {
   stroke: var(--grey);
   stroke-width: 2px;
   fill: transparent;
 }
 
+#progress svg circle#progress-circle {
+  stroke: black;
+  stroke-width: 2px;
+  fill: transparent;
+  stroke-dasharray: 68px; /* 2PI * 6 */
+  stroke-dashoffset: 68px;
+  transition: all 0.2s ease-in;
+}
+
 #progress svg {
   width: var(--size);
   height: var(--size);
+  transform: rotate(270deg);
 }
 
 #progress #progress-value {

@@ -74,16 +74,9 @@ li {
 
 ul input {
   flex-shrink: 0;
-  margin-left: 2px;
-  margin-right: 0px;
   appearance: none;
-  border: 2px solid var(--grey);
-  --size: 1rem;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 2px;
-  position: relative;
-  order: 1;
+  color: var(--grey);
+  font-size: 1rem;
 }
 
 label {
@@ -91,20 +84,29 @@ label {
 }
 
 ul input[type="checkbox"]::before { /* wont work without [type="checkbox"] cuz ::before doesn't work on just input */
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("/svg/tick.svg");
+  content: "- [\00A0";
+  letter-spacing: 4px;
+}
+
+ul input[type="checkbox"]::after {
+  content: "]";
+  margin-left: 4px;
 }
 
 label:hover + input {
-  border-color: var(--dark-grey);
+  color: var(--dark-grey);
 }
 
 ul input:checked {
-  background: black;
-  border-color: black;
+  color: black;
+}
+
+ul input:checked::before {
+  content: "- [x";
+}
+
+ul input:checked::after {
+  margin-left: 0px;
 }
 
 #button-group {
@@ -269,14 +271,6 @@ footer p {
   ul li {
     margin-bottom: 0.5em;
     font-size: 1.1em;
-  }
-
-  ul input {
-    border-width: 3px;
-  }
-
-  ul input[type="checkbox"]::before {
-    transform: translate(-1px, -1px);
   }
 
   header {

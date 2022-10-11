@@ -2,8 +2,8 @@ const average = arr => arr.reduce((a, b) => a + b) / arr.length
 
 const extractTopics = obj => {
   const itemList = []
-  for (let i in obj.topic) {
-    const topic = obj.topic[i]
+  for (let i in obj.topics) {
+    const topic = obj.topics[i]
     const ws = []
 
     for (let j in topic.weights){

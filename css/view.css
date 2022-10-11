@@ -158,6 +158,16 @@ ul input:checked::after {
   display: flex;
   gap: 0.6em;
   height: var(--size);
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+#progress[data-state=visible] {
+  opacity: 1;
+}
+
+#progress[data-state=hidden] {
+  opacity: 0;
 }
 
 #progress svg circle#backdrop {

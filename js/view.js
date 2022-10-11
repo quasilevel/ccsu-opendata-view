@@ -56,9 +56,12 @@ const cLink = code => `
 const getProgress = inputs => () => average(inputs.map(el => el.checked ? 1 : 0)) * 100
 const scaleInRage = ((min, max) => percentile => ((max - min) * (percentile / 100)) + min)(30, 68)
 const setProgress = gp => () => {
-  const progress = Math.round(gp()).toString().padStart(3, "0")
-  document.querySelector("#progress-value").innerText = `${progress}%`
-  document.querySelector("#progress-circle").style.strokeDashoffset = `${scaleInRage(100 - progress)}px`
+  const progress = Math.round(gp())
+  const progressStr = progress.toString().padStart(3, "0")
+  const progressClass = progress === 0 ? "hidden" : "visible"
+  document.querySelector("#progress-value").innerText = `${progressStr}%`
+  document.querySelector("#progress-circle").style.strokeDashoffset = `${scaleInRage(100 - progressStr)}px`
+  document.querySelector("#progress").dataset.state = progressClass
 }
   
 const handleData = async subject => {

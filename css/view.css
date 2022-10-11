@@ -64,6 +64,9 @@ ul {
   list-style: none;
   padding: 0px;
   margin: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 li {
@@ -77,6 +80,7 @@ ul input {
   appearance: none;
   color: var(--grey);
   font-size: 1rem;
+  margin: 0px;
 }
 
 label {

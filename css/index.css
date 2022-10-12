@@ -7,7 +7,18 @@
 
 body {
   font-family: "Fira Code", monospace;
-  padding: 2em;
+  padding: 2.5em;
+  margin: 0px;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body > main, body > header {
+  max-width: 1200px;
+  width: 100%;
 }
 
 h1, h2 {
@@ -39,6 +50,8 @@ h1, h2 {
 
 main {
   display: grid;
+  height: calc(100% - var(--title-size) - 2.5rem);
+  align-content: center;
 }
 
 #landing {
@@ -50,7 +63,7 @@ main {
 }
 
 #cta-container {
-  padding-right: 2rem;
+  padding-rigt: 2rem;
 }
 
 #cta-container > div {
@@ -67,10 +80,11 @@ main {
 }
 
 #cta-container #dots {
+  --translatex: 60%;
   position: absolute;
   right: 0px;
   top: 0px;
-  transform: translateX(60%) translateY(-35%);
+  transform: translateX(var(--translatex)) translateY(-35%);
   display: grid;
   grid-template-columns: repeat(var(--width), 1fr);
   gap: 0.8rem;
@@ -162,7 +176,6 @@ header {
   display: grid;
   grid-template-columns: var(--logo-size) 1fr var(--logo-size);
   align-items: center;
-  margin-bottom: 4em;
 }
 
 ul {
@@ -218,13 +231,53 @@ ul input:checked::after {
   margin-left: 0px;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 1133px) {
+  #cta-container #dots {
+    --translatex: 20%;
+  }
+}
+
+@media (max-width: 993px) {
+  #cta-container #dots {
+    --translatex: -10%;
+  }
+}
+
+@media (max-width: 875px) {
+  #landing {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  header {
+    margin-bottom: 4rem;
+  }
+  
+  main {
+    height: initial;
+    align-items: initial;
+  }
+  
+  #cta-container #dots {
+    --translatex: 60%;
+  }
+  
+  #illustration {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 583px) {
   :root {
     --logo-size: 90px;
   }
 
   body {
     padding: 2em 1em;
+  }
+  
+  #cta-container #dots {
+    --translatex: 0%;
   }
 
   header {

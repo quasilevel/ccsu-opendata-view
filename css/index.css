@@ -88,6 +88,7 @@ main {
   display: grid;
   grid-template-columns: repeat(var(--width), 1fr);
   gap: 0.8rem;
+  z-index: -1;
 }
 
 #cta-container #dots div {

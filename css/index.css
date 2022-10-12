@@ -53,6 +53,28 @@ main {
   padding-right: 2rem;
 }
 
+#cta-container div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+#cta-container h1 {
+  font-size: 3rem;
+}
+
+#cta-container p {
+  color: var(--dark-grey);
+}
+
+#cta-container a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  width: max-content;
+}
+
 #illustration {
   padding-left: 2rem;
 }

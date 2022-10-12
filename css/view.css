@@ -17,10 +17,6 @@ header {
   margin-bottom: 4em;
 }
 
-#intro {
-  position: relative;
-}
-
 #logo > img {
   width: var(--logo-size);
   height: var(--logo-size);
@@ -154,7 +150,6 @@ ul input:checked::after {
 }
 
 #progress {
-  --size: 1.25em;
   display: flex;
   gap: 0.6em;
   height: var(--size);
@@ -171,13 +166,13 @@ ul input:checked::after {
 }
 
 #progress svg circle#backdrop {
-  stroke: var(--grey);
+  stroke: var(--backdrop-color);
   stroke-width: 2px;
   fill: transparent;
 }
 
 #progress svg circle#progress-circle {
-  stroke: black;
+  stroke: var(--solid-color);
   stroke-width: 2px;
   fill: transparent;
   stroke-dasharray: 68px; /* 2PI * 6 */
@@ -191,17 +186,6 @@ ul input:checked::after {
   transform: rotate(270deg);
 }
 
-#progress #progress-value {
-  height: 100%;
-  background: black;
-  display: grid;
-  place-items: center;
-  padding: 0px 0.5em;
-  color: white;
-  font-size: 0.8em;
-  border-radius: 4px;
-}
-
 footer {
 	margin: 7rem 0px 0px;
 	color: var(--grey);
@@ -211,6 +195,28 @@ footer {
 
 footer p {
 	border-bottom: 1px dashed currentColor;
+}
+
+@media (max-width: 749px) {
+  #progress {
+    --size: 1.5rem;
+    --solid-color: white;
+    --backdrop-color: var(--dark-grey);
+    position: fixed;
+    background: rgba(0, 0, 0, 90%);
+    pointer-events: none;
+    color: white;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9001;
+  }
+  
+  #progress-value {
+    align-self: center;
+  }
 }
 
 @media (min-width: 750px) {
@@ -224,10 +230,24 @@ footer p {
 
   #intro {
     margin-bottom: 1em;
+    position: relative;
+  }
+
+  #progress #progress-value {
+    height: 100%;
+    background: black;
+    display: grid;
+    place-items: center;
+    padding: 0px 0.5em;
+    color: white;
+    font-size: 0.8em;
+    border-radius: 4px;
   }
 
   #progress {
     --size: 1.55rem;
+    --backdrop-color: var(--grey);
+    --solid-color: black;
     gap: 1.3rem;
     height: initial;
     position: absolute;

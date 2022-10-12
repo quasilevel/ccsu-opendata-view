@@ -29,6 +29,10 @@ h1, h2 {
   margin: 0px;
 }
 
+#logo #dark {
+  display: none;
+}
+
 #logo > img {
   width: var(--logo-size);
   height: var(--logo-size);
@@ -144,9 +148,28 @@ header {
   :root {
     --logo-size: 90px;
   }
+  
+  #logo #dark {
+    display: block;
+  }
+  
+  #logo #light {
+    display: none;
+  }
 
   body {
     padding: 2em 1em;
+    background: black;
+    color: white;
+  }
+  
+  #button-group {
+    padding: 0px;
+  }
+  
+  #title span {
+    background: white;
+    color: black;
   }
 
   header {

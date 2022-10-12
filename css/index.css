@@ -73,6 +73,17 @@ main {
   text-decoration: none;
   cursor: pointer;
   width: max-content;
+  position: relative;
+}
+
+#cta-container a .underline {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: black;
+  border-radius: 2px;
+  bottom: -0.5rem;
+  left: 0px;
 }
 
 #illustration {
@@ -95,10 +106,21 @@ main {
   gap: 0.4rem;
   color: var(--grey);
   font-weight: normal;
+  position: relative;
+  width: max-content;
 }
 
 #illustration > div h2 span:nth-child(3) {
   color: black;
+}
+
+#illustration > div h2 .underline {
+  position: absolute;
+  background: black;
+  width: 100%;
+  height: 1px;
+  left: 0px;
+  bottom: -0.5em;
 }
 
 header {

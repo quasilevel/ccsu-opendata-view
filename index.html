@@ -21,7 +21,21 @@
       <section id="landing">
         <section id="cta-container">
           <div>
-            <h1>Smarten up your<br>preparations</h1>
+            <h1>
+              Smarten up your<br>preparations
+              <div id="dots"></div>
+              <script type="text/javascript">
+                const [width, height] = [8, 6]
+                const total = width * height
+                const dots = document.querySelector('#cta-container #dots')
+                dots.style.setProperty("--width", width)
+                dots.style.setProperty("--height", height)
+                
+                for (let i = 0; i < (width * height); i++) {
+                  dots.appendChild(document.createElement("div"))
+                }
+              </script>
+            </h1>
             <p>Use the PI Club's statistically generated list of important topics to smarten up your exam preparations!</p>
             <a href="#">Start Preparing!<span class="underline"></span></a>
           </div>

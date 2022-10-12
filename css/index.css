@@ -53,7 +53,7 @@ main {
   padding-right: 2rem;
 }
 
-#cta-container div {
+#cta-container > div {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -62,6 +62,26 @@ main {
 
 #cta-container h1 {
   font-size: 3rem;
+  position: relative;
+  max-width: max-content;
+}
+
+#cta-container #dots {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transform: translateX(60%) translateY(-35%);
+  display: grid;
+  grid-template-columns: repeat(var(--width), 1fr);
+  gap: 0.8rem;
+}
+
+#cta-container #dots div {
+  --size: 4px;
+  width: var(--size);
+  height: var(--size);
+  background: var(--grey);
+  border-radius: 50%;
 }
 
 #cta-container p {

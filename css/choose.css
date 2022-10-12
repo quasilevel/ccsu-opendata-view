@@ -1,0 +1,159 @@
+:root {
+  --logo-size: 70px;
+  --title-size: calc(0.9em * (24.06 / 16));
+  --text-size: calc(var(--title-size) * (18.82 / 24.06));
+  --action-text-size: calc(var(--title-size) * (14 / 24.06));
+  --button-text-size: calc(var(--title-size) * (20.08 / 24.06));
+  --grey: #8f8f9d;
+  --dark-grey: #5E5E5E;
+}
+
+body {
+  font-family: "Fira Code", monospace;
+  padding: 2.5em;
+  margin: 0px;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body > main, body > header {
+  max-width: 1200px;
+  width: 100%;
+}
+
+h1, h2 {
+  padding: 0px;
+  margin: 0px;
+}
+
+#logo > img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+}
+
+#title {
+  --title-hgap: calc(var(--title-size) * (6.02 / 24.06));
+  --title-vgap: calc(var(--title-size) * (9.02 / 24.06));
+  font-size: var(--title-size);
+  display: flex;
+  gap: var(--title-hgap);
+  align-items: baseline;
+  justify-self: center;
+}
+
+#title > span {
+  padding: var(--title-hgap) var(--title-vgap); /* naming is weird, but this is correct */
+  color: white;
+  background: black;
+  border-radius: var(--title-hgap);
+}
+
+main {
+  display: grid;
+  height: calc(100% - var(--title-size) - 2.5rem);
+  place-content: center;
+}
+
+header {
+  display: grid;
+  grid-template-columns: var(--logo-size) 1fr var(--logo-size);
+  align-items: center;
+}
+
+#button-group {
+  background: black;
+  color: white;
+  padding: 2em;
+  max-width: 630px;
+  border-radius: 18px;
+}
+
+#action-hint {
+  font-size: var(--action-text-size);
+  margin-bottom: 2em;
+}
+
+#buttons > a {
+  appearance: none;
+  color: black;
+  background: white;
+  outline: none;
+  border: none;
+  --vpad: calc(var(--button-text-size) * (12.91 / 20.08));
+  font-size: var(--button-text-size);
+  padding: var(--vpad) 0px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-out;
+  min-width: 200px;
+  flex: 1;
+}
+
+#buttons > a::after {
+  content: attr(data-semester);
+  opacity: 1;
+  transition: all 0.2s ease-out;
+}
+
+#buttons > a::before {
+  content: attr(data-code);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-150%);
+  opacity: 0;
+  transition: all 0.27s ease-in;
+}
+
+#buttons > a.show::after {
+  opacity: 0;
+}
+
+#buttons > a.show::before {
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+#buttons > a.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+@media (max-width: 875px) {
+  header {
+    margin-bottom: 4rem;
+  }
+  
+  main {
+    height: initial;
+    align-items: initial;
+  }
+}
+
+@media (max-width: 583px) {
+  :root {
+    --logo-size: 90px;
+  }
+
+  body {
+    padding: 2em 1em;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: none;
+    justify-items: center;
+    margin-bottom: 3em;
+    gap: 2rem;
+  }
+}

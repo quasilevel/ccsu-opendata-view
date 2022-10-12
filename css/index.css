@@ -87,10 +87,14 @@ main {
 }
 
 #illustration {
-  padding-left: 2rem;
+  margin-left: 2rem;
+  box-sizing: border-box;
+  position: relative;
 }
 
-#illustration > div {
+#illustration > .panel {
+  box-sizing: border-box;
+  width: 100%;
   border: 1px solid black;
   border-radius: 12px 12px 0px 0px;
   border-bottom-color: transparent;
@@ -98,6 +102,17 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  position: absolute;
+}
+
+#illustration > .panel #fader {
+  position: absolute;
+  bottom: 0px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: 7rem;
+  background: linear-gradient(to bottom, transparent, white);
+  z-index: 1;
 }
 
 #illustration > div h2 {

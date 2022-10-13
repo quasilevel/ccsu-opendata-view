@@ -73,6 +73,43 @@ header {
   padding: 2em;
   max-width: 630px;
   border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+#button-group > div {
+  position: relative;
+  z-index: 2;
+}
+
+#button-group #backdrop {
+  --tx: -50%;
+  --ty: -50%;
+  --scale: 0.8;
+  pointer-events: none;
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  gap: 2.5em;
+  top: 50%;
+  left: 50%;
+  transform: translate(var(--tx), var(--ty)) scale(var(--scale));
+  z-index: 1;
+  opacity: 0.3;
+  transition: all 2.5s cubic-bezier(.65,.05,.36,1);
+}
+
+#button-group:hover #backdrop {
+  opacity: 0.6;
+  --scale: 1;
+}
+
+#backdrop div {
+  --size: 4px;
+  width: var(--size);
+  height: var(--size);
+  background: var(--grey);
+  border-radius: 100%;
 }
 
 #action-hint {

@@ -30,6 +30,7 @@ const buttons = $.querySelectorAll("#buttons > a")
 
 const back = (opener) => async ev => {
   ev.preventDefault()
+  document.querySelector('#action-hint').innerText = 'Choose Semester:'
   buttons[0].removeEventListener("click", back)
 
   buttons.forEach(el => (el.classList.remove("show"), el.classList.remove("hide"), el.href = "#"))
@@ -39,6 +40,7 @@ const back = (opener) => async ev => {
 
 const openSemester = async ev => {
   ev.preventDefault()
+  document.querySelector('#action-hint').innerText = 'Choose Subject Code:'
   buttons.forEach(el => (el.classList.add("show"), el.removeEventListener("click", openSemester)))
 
   buttons[0].dataset.code = "<-"

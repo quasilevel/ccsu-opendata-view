@@ -21,6 +21,14 @@ const createWeightedList = topicList => topicList.map(([name, weights]) => [name
 
 const sort = weightList => weightList.sort((a, b) => b[1] - a[1])
 
+const analyzeTopics = obj => {
+  const topicList = extractTopics(obj)
+  const weightList = createWeightedList(topicList)
+  sort(weightList)
+  
+  return weightList
+}
+
 const cListItem = ([name, weight], idx) => `
 <li title="${name} has ${weight.toLocaleString("en-IN", {maximumFractionDigits: 2})} weightage on average">
   <label for="q${idx}">${name}</label><input type="checkbox" id="q${idx}">
@@ -65,9 +73,7 @@ const setProgress = gp => () => {
 }
   
 const handleData = async subject => {
-  const topicList = extractTopics(subject)
-  const weightList = createWeightedList(topicList)
-  sort(weightList)
+  const weightList = analyzeTopics(subject)
 
   document.querySelector("#intro h1").innerText = subject.title
 

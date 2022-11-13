@@ -1,33 +1,4 @@
-const average = arr => arr.reduce((a, b) => a + b) / arr.length
-
-const extractTopics = obj => {
-  const itemList = []
-  for (let i in obj.topics) {
-    const topic = obj.topics[i]
-    const ws = []
-
-    for (let j in topic.weights){
-      const weight = topic.weights[j]
-      ws.push(weight.weight);
-    }
-
-    const item = [topic.name, ws]
-    itemList.push(item);
-  }
-  return itemList  
-}
-
-const createWeightedList = topicList => topicList.map(([name, weights]) => [name, average(weights)])
-
-const sort = weightList => weightList.sort((a, b) => b[1] - a[1])
-
-const analyzeTopics = obj => {
-  const topicList = extractTopics(obj)
-  const weightList = createWeightedList(topicList)
-  sort(weightList)
-  
-  return weightList
-}
+import analyzeTopics from "./modules/weight.js"
 
 const cListItem = ([name, weight], idx) => `
 <li title="${name} has ${weight.toLocaleString("en-IN", {maximumFractionDigits: 2})} weightage on average">
@@ -84,7 +55,7 @@ const handleData = async subject => {
   const gp = getProgress(Array.from(inputs))
   inputs.forEach(el => el.addEventListener("change", setProgress(gp)))
 
-  const { default: generateChart } = await import("/js/modules/chart.js")
+  const { default: generateChart } = await import("./modules/chart.js")
   generateChart(document.querySelector("#chart-container"), weightList)
 }
 

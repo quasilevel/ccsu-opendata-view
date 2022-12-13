@@ -1,5 +1,7 @@
 import analyzeTopics from "./modules/weight.js"
 
+const average = (vals) => vals.reduce((a, b) => a + b) / vals.length
+
 const cListItem = ([name, weight], idx) => `
 <li title="${name} has ${weight.toLocaleString("en-IN", {maximumFractionDigits: 2})} weightage on average">
   <label for="q${idx}">${name}</label><input type="checkbox" id="q${idx}">

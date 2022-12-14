@@ -8,18 +8,14 @@ for (let i = 0; i < (rows * cols); i++) {
 	)
 }
 
-const { width, height } = backdrop.getBoundingClientRect()
-const { width: btnw, height: btnh } = buttonGroup.getBoundingClientRect()
-const pos = {
-	x: width / -2, y: height / -2
-}
+const { width , height } = buttonGroup.getBoundingClientRect()
 
 const percent = max => val => Math.max(0, Math.min(
 	100, Math.floor(val * 100 / max)
 ))
 
 const percent2D = (px, py) => (x, y) => [px(x), py(y)]
-const btnp = percent2D(percent(btnw), percent(btnh))
+const btnp = percent2D(percent(width), percent(height))
 
 const scaleAndClamp = (min, max) => val => Math.max(min, Math.min(
 	max, ((val / 100) * (max - min)) + min
@@ -27,7 +23,7 @@ const scaleAndClamp = (min, max) => val => Math.max(min, Math.min(
 const sac = scaleAndClamp(25, 75)
 console.log(scaleAndClamp(25, 75)(0))
 
-const handler = (p) => async ev => {
+const handler = ev => {
 	const { clientX: cx, clientY: cy } = ev
 	const { x: ex, y: ey } = buttonGroup.getBoundingClientRect()
 	const [ox, oy] = [cx - ex, cy - ey]
@@ -38,4 +34,4 @@ const handler = (p) => async ev => {
 	backdrop.style.setProperty("--ty", `${ny}%`)
 }
 
-buttonGroup.addEventListener("mousemove", handler(pos))
+buttonGroup.addEventListener("mousemove", handler)

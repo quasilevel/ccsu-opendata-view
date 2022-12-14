@@ -1,5 +1,6 @@
 const $ = document
 
+// FIXME: this map is duplicated in /js/view.js
 const codeList = new Map([
   ["Semester 1", new Set(["101", "102", "103", "104", "105", "008"])],
   ["Semester 2", new Set(["201", "202", "203", "204", "205"])],
@@ -17,7 +18,7 @@ const reqLinks = ((codeList) => [...codeList].map(el => el[1].size).reduce((a, b
   const cLink = () => {
     const el = $.createElement("a")
     el.classList.add("hide")
-    el.dataset.semester = "\u00A0"
+    el.dataset.semester = "\u00A0" // the unicode non-block space character. without this, css wont properly render the link
     return el
   }
   const diff = reqLinks - $.querySelectorAll("#buttons > a").length
@@ -28,24 +29,30 @@ const reqLinks = ((codeList) => [...codeList].map(el => el[1].size).reduce((a, b
 
 const buttons = $.querySelectorAll("#buttons > a")
 
-const back = (opener) => async ev => {
+const back = (opener) => ev => { // opener is just a refrence to the openSemester function below
   ev.preventDefault()
   document.querySelector('#action-hint').innerText = 'Choose Semester:'
   buttons[0].removeEventListener("click", back)
 
+  // clean up the classlist
   buttons.forEach(el => (el.classList.remove("show"), el.classList.remove("hide"), el.href = "#"))
+
+  // hide the links which are not needed
   Array.from(buttons).slice(codeList.size).map(el => el.classList.add("hide"))
+
   buttons.forEach(el => el.addEventListener("click", opener))
 }
 
-const openSemester = async ev => {
+const openSemester = ev => {
   ev.preventDefault()
   document.querySelector('#action-hint').innerText = 'Choose Subject Code:'
   buttons.forEach(el => (el.classList.add("show"), el.removeEventListener("click", openSemester)))
 
+  // set the first element as the back button
   buttons[0].dataset.code = "<-"
   buttons[0].addEventListener("click", back(openSemester))
 
+  // show the codes for the selected semester
   const codes = [...codeList.get(ev.target.dataset.semester)]
   Array.from(buttons).slice(codes.length + 1).map(el => el.classList.add("hide"))
   codes.map((code, idx) => {

@@ -1,3 +1,5 @@
+// @ts-check
+
 const average = arr => arr.reduce((a, b) => a + b) / arr.length
 
 const extractTopics = obj => {
@@ -21,17 +23,15 @@ const createWeightedList = topicList => topicList.map(([name, weights]) => [name
 
 const sort = weightList => weightList.sort((a, b) => b[1] - a[1])
 
-// analyzeTopics takes an object of the shape as described here: https://github.com/quasilevel/ccsu-opendata
-// and returns an array of topics with a computed weightage with the following shape:
-// ```js
-// [
-// 	["topic 1", 12.9],
-//  ["topic 2", 8],
-//   ...
-// ]
-// ```
-// the return type of analyzeTopics must be `[string, number][]` (in typescript)
-const analyzeTopics = obj => {
+/**
+ * analyzeTopics takes an object of the shape as described here: https://github.com/quasilevel/ccsu-opendata
+ * and returns a sorted list of topics with their corresponding importance factor
+ * 
+ * @typedef {string} TopicName  - Name of the topic
+ * @typedef {number} Importance - Importance factor for the topic
+ * @returns {Array.<[TopicName, Importance]>}
+ */
+const analyzeTopics = (obj) => {
   const topicList = extractTopics(obj)
   const weightList = createWeightedList(topicList)
   sort(weightList)

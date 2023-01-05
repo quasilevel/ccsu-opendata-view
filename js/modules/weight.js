@@ -32,42 +32,33 @@ const sort = (weightList) => weightList.sort((a, b) => b[1] - a[1]);
  * @typedef {number} Importance - Importance factor for the topic
  * @returns {Array.<[TopicName, Importance]>}
  */
+
 const analyzeTopics = (obj) => {
-  const topicslist = [];
-  const numsum = [];
-  const yearlist = [];
-  var sampleNum=0
-  var analyzeNum;
-  //loop for year difference
-  for (let i = 0; i < obj.topics.length; i++) {
-    for (let j = 0; j < obj.topics[i].weights.length; j++) {
-      yearlist.push(obj.topics[i].weights[j].year);
+  const calculatingYears = [];
+
+  //Calculating all years
+  for (let i in obj.topics) {
+    for (let j in obj.topics[i].weights) {
+      calculatingYears.push(obj.topics[i].weights[j].year);
     }
   }
-  // here is our total year of difference
-  analyzeNum = Math.max(...yearlist) - Math.min(...yearlist) + 1;
-  //loop for making array of all topics
-  for (let i = 0; i < obj.topics.length; i++) {
-    topicslist.push(obj.topics[i].name);
-  }
-  // loop for getting sum of weights and dividing by analyzeNum
-  for (let i = 0; i < obj.topics.length; i++) {
-    for (let j = 0; j < obj.topics[i].weights.length; j++) {
-      sampleNum=sampleNum+obj.topics[i].weights[j].weight
+  // Value for analyze Topics
+  const devidingValue =
+    Math.max(...calculatingYears) - Math.min(...calculatingYears) + 1;
+  //Code for creating Result
+  const result = [];
+  let numberSum;
+  for (let i in obj.topics) {
+    var subResult = [];
+    numberSum = 0;
+    for (let j in obj.topics[i].weights) {
+      numberSum += obj.topics[i].weights[j].weight;
     }
-    numsum.push(sampleNum/analyzeNum)
-    sampleNum=0
+    subResult.push(obj.topics[i].name);
+    subResult.push(numberSum / devidingValue);
+    result.push(subResult);
   }
-
-  const finalresult=[]
-  for(let i=0;i<numsum.length;i++){
-    var result =[]
-    result.push(topicslist[i])
-    result.push(numsum[i])
-    finalresult.push(result)
-  }
-
-  return finalresult;
+  return result;
 };
 
 export default analyzeTopics;

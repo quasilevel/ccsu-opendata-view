@@ -51,7 +51,6 @@ const analyzeTopics = (obj) => {
     topicslist.push(obj.topics[i].name);
   }
   // loop for getting sum of weights and dividing by analyzeNum
-  console.log(obj.topics[0].weights[0].weight);
   for (let i = 0; i < obj.topics.length; i++) {
     for (let j = 0; j < obj.topics[i].weights.length; j++) {
       sampleNum=sampleNum+obj.topics[i].weights[j].weight
@@ -59,10 +58,16 @@ const analyzeTopics = (obj) => {
     numsum.push(sampleNum/analyzeNum)
     sampleNum=0
   }
-  console.log(numsum);
-  // Tushar Bhaiya your task is to concatinate topicslist and numsum
 
-  return obj;
+  const finalresult=[]
+  for(let i=0;i<numsum.length;i++){
+    var result =[]
+    result.push(topicslist[i])
+    result.push(numsum[i])
+    finalresult.push(result)
+  }
+
+  return finalresult;
 };
 
 export default analyzeTopics;
